@@ -1,0 +1,63 @@
+name: Build and publish pfQuest-CoA
+on:
+  push:
+    branches: [main]
+    paths: ['.release.json']
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: pfquest-coa-release
+  cancel-in-progress: false
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate and package
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import json,os,pathlib,re,zipfile
+          root=pathlib.Path(".")
+          cfg=json.loads((root/".release.json").read_text())
+          version=cfg["version"]
+          assert re.fullmatch(r"v\d+\.\d+\.\d+(?:-[A-Za-z0-9.-]+)?",version)
+          folders=cfg["folders"]
+          assert folders==["pfQuest","pfQuest-ascension"]
+          for folder in folders:
+              base=root/folder
+              assert base.is_dir(),f"Missing addon directory: {folder}"
+              tocs=list(base.glob("*.toc"))
+              assert tocs,f"Missing TOC: {folder}"
+              for toc in tocs:
+                  for line in toc.read_text(encoding="utf-8-sig").splitlines():
+                      line=line.strip()
+                      if not line or line.startswith("#"): continue
+                      assert (base/line.replace("\\","/")).is_file(),f"Missing TOC dependency: {toc}: {line}"
+          output=root/"dist"
+          output.mkdir(exist_ok=True)
+          artifact=output/("pfQuest-CoA-"+version+".zip")
+          with zipfile.ZipFile(artifact,"w",zipfile.ZIP_DEFLATED) as archive:
+              for folder in folders:
+                  for file in sorted((root/folder).rglob("*")):
+                      if file.is_file() and file.name not in (".DS_Store","Thumbs.db"):
+                          archive.write(file,file.as_posix())
+          with zipfile.ZipFile(artifact) as archive:
+              assert archive.testzip() is None
+              names=archive.namelist()
+              assert any(n.startswith("pfQuest/") for n in names)
+              assert any(n.startswith("pfQuest-ascension/") for n in names)
+          with open(os.environ["GITHUB_ENV"],"a") as env:
+              env.write(f"VERSION={version}\nASSET={artifact}\nPRERELEASE={str(cfg.get('prerelease',False)).lower()}\n")
+          PY
+      - name: Publish release and ZIP
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          args=()
+          if [ "$PRERELEASE" = true ]; then args+=(--prerelease --latest=false); else args+=(--latest); fi
+          if gh release view "$VERSION" >/dev/null 2>&1; then echo "Release already exists"; exit 1; fi
+          gh release create "$VERSION" "$ASSET" --target "$GITHUB_SHA" --title "pfQuest-CoA $VERSION" --notes-file RELEASE-NOTES.md "${args[@]}"
