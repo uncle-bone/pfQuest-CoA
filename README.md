@@ -1,41 +1,33 @@
 # pfQuest-CoA
 
-> **[⬇ Download v1.0.1 — Current stable release](https://github.com/uncle-bone/pfQuest-CoA/releases/download/v1.0.1/pfQuest-CoA-v1.0.1.zip)** — install-ready package for WoW 3.3.5a / Conquest Reborn.
+> **[⬇ Download v1.0.4 — Current stable release](https://github.com/uncle-bone/pfQuest-CoA/releases/download/v1.0.4/pfQuest-CoA-v1.0.4.zip)** — install-ready package for WoW 3.3.5a / Conquest Reborn.
 
-Quest helper and Conquest Reborn database addon for Ascension Conquest of Azeroth / Conquest Reborn (WoW 3.3.5a).
+Quest helper and Conquest Reborn database addon for Ascension: Conquest of Azeroth / Conquest Reborn (WoW 3.3.5a).
 
 Maintainer: **Uncle Bone**
 
-## Current release: v1.0.1 (2026-11-01)
+## Current release: v1.0.4
 
-The current release establishes a conservative performance baseline while keeping pfQuest's zone-based map architecture. It includes both required addon folders: `pfQuest/` and `pfQuest-ascension/`.
+Adds an option to use stock Blizzard quest-giver and turn-in icons alongside pfQuest's map features. Both required addon folders are included: `pfQuest/` and `pfQuest-ascension/`.
 
-### v1.0.1 changes
+### v1.0.4 changes
+
+- Adds **Prefer Stock Quest Giver/Turn-in Icons** to CoA Map & Minimap Styles.
+- Enabled by default to avoid overlapping pfQuest and Blizzard quest-giver markers.
+- Preserves quest objective markers and routes.
+- Can be disabled to compare pfQuest's own marker styles; existing Save, Cancel, and Reset controls remain available.
+- Keeps upstream license notices and attribution.
+
+Install both addon folders side by side in `Interface/AddOns/`. Runtime behavior of the new style option still needs in-game testing on Conquest Reborn. The previous v1.0.1 release established the minimap refresh performance baseline.
+
+## v1.0.1
 
 - Throttles periodic minimap refresh from approximately 20 Hz to 5 Hz.
 - Preserves world-map animation, pin positioning, quest databases, custom content patches, and SavedVariables.
-- Includes the upstream license notices and attribution.
 
-Runtime behavior still needs in-game verification on Conquest Reborn.
+## v1.0.0 baseline
 
-## v1.0.0 baseline (2026-11-01)
-
-The initial package is based on the supplied pfQuest and pfQuest-ascension source archive. Both addon directories are required:
-
-- `pfQuest/`
-- `pfQuest-ascension/`
-
-Install both in `Interface/AddOns`. Enable both at the AddOns selection screen.
-
-### Initial changes
-
-- Start independent CoA version numbering at `1.0.0` for standard Wrath TOCs and the CR database extension.
-- Enable the default 3.3.5a TOC files.
-- Preserve the existing SavedVariables and Conquest Reborn database patches.
-- Disable the extension's old Conquest Reborn client-update announcements and related addon version broadcasts.
-- Preserve original upstream attribution and license notices.
-
-**Status:** Source package integrity checked; in-game operation still needs testing on Conquest Reborn.
+The initial package is based on the supplied pfQuest and pfQuest-ascension source archive. Both addon directories are required. It established independent CoA version numbering, enabled the default 3.3.5a TOCs, preserved SavedVariables and Conquest Reborn patches, and retained upstream license notices and attribution.
 
 ### Upstream acknowledgments
 
