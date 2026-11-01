@@ -1,5 +1,7 @@
 # Changelog
 
+Current stable release: **v1.0.1** · [Direct ZIP download](https://github.com/uncle-bone/pfQuest-CoA/releases/download/v1.0.1/pfQuest-CoA-v1.0.1.zip)
+
 ## v1.0.1 — 2026-11-01
 
 - Throttle periodic minimap refresh from approximately 20 Hz to 5 Hz.
