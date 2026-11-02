@@ -1,23 +1,24 @@
 # pfQuest-CoA
 
-> **[⬇ Download v1.0.5 — Current stable release](https://github.com/uncle-bone/pfQuest-CoA/releases/download/v1.0.5/pfQuest-CoA-v1.0.5.zip)** — [release notes](https://github.com/uncle-bone/pfQuest-CoA/releases/tag/v1.0.5).
+> **[⬇ Download v1.0.15 — Current stable release](https://github.com/uncle-bone/pfQuest-CoA/releases/download/v1.0.15/pfQuest-CoA-v1.0.15.zip)** — [release notes](https://github.com/uncle-bone/pfQuest-CoA/releases/tag/v1.0.15).
 
-Quest helper and Conquest Reborn database addon for Ascension: Conquest of Azeroth / Conquest Reborn (WoW 3.3.5a).
+Quest helper and Conquest Reborn database addon for Ascension: Conquest of Azeroth / Conquest Reborn (WoW 3.3.5a, Interface 30300).
 
 Maintainer: **Uncle Bone**
 
-## Current release: v1.0.5
+## Current release: v1.0.15
 
-This release contains the latest available pfQuest-CoA channel-hotfix package. Both addon folders, `pfQuest/` and `pfQuest-ascension/`, are included side by side with upstream license notices and attribution.
+This release updates pfQuest-CoA sharing to the shared **CoASync** channel and adds bounded multi-category discovery reconciliation. Both addon folders, `pfQuest/` and `pfQuest-ascension/`, are included side by side with upstream license notices and attribution.
 
-### v1.0.5 changes
+### v1.0.15 changes
 
-- Adds an experimental, bounded journal for confirmed quest-ID discoveries.
-- The SmartSync component attaches only to an already existing **BBLC25C** channel. It does not create, reorder, leave, or otherwise modify chat channels.
-- Preserves existing quest data, world-map/minimap features, and SavedVariables.
-- Uses the package's stable addon metadata version **1.0.5**.
+- Uses the **CoASync** channel and a dedicated `PFQ6` discovery protocol.
+- Waits 20 seconds after login before attempting to join, checks for existing channels, and hides CoASync from visible chat frames without leaving the channel.
+- Adds bounded indexing and reconciliation for quest discoveries, plus sharing status and controls.
+- Preserves existing quest data, map features, and SavedVariables.
+- The optional status panel opens only when requested with `/pfqsyncui`; it does not open automatically.
 
-This build does **not** implement the later proposed CoASync channel migration. SmartSync and cross-player behavior still need in-game validation with another compatible client online.
+Sharing and cross-client synchronization still need in-game validation with compatible peers. The release ZIP is based on the v1.0.15-dev chat build; the included addon version labels are set to stable **1.0.15**.
 
 ## v1.0.4
 
