@@ -20,6 +20,12 @@ This release updates pfQuest-CoA sharing to the shared **CoASync** channel and a
 
 Sharing and cross-client synchronization still need in-game validation with compatible peers. The release ZIP is based on the v1.0.15-dev chat build; the included addon version labels are set to stable **1.0.15**.
 
+## v1.0.16 maintenance status
+
+The v1.0.16 development package fixes a WoW 3.3.5a Lua runtime error in `coa_sync.lua` caused by passing the multiple return values of `GetNumQuestLogEntries()` into `tonumber()`. It retains the CoASync sharing diagnostics and command buttons. **This fix has not yet been published as a verified GitHub release; the current verified release remains v1.0.15.**
+
+For the in-game sharing panel, open pfQuest settings and select **Open Sharing & Diagnostics**. The panel includes buttons for status, statistics, channel information, and refresh. CoASync should be joined after a delayed startup and hidden from ordinary chat windows. For troubleshooting, use `/pfqsync status`.
+
 ## v1.0.4
 
 - Adds **Prefer Stock Quest Giver/Turn-in Icons** to CoA Map & Minimap Styles.
