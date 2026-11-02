@@ -1,6 +1,6 @@
 # pfQuest-CoA
 
-> **[⬇ Download v1.0.15 — Current stable release](https://github.com/uncle-bone/pfQuest-CoA/releases/download/v1.0.15/pfQuest-CoA-v1.0.15.zip)** — [release notes](https://github.com/uncle-bone/pfQuest-CoA/releases/tag/v1.0.15).
+> **[Download](https://github.com/uncle-bone/pfQuest-CoA/releases/latest)**
 
 Quest helper and Conquest Reborn database addon for Ascension: Conquest of Azeroth / Conquest Reborn (WoW 3.3.5a, Interface 30300).
 
