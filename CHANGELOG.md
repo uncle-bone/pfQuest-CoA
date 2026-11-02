@@ -1,14 +1,21 @@
 # Changelog
 
-Current stable release: **v1.0.4** · [Direct ZIP download](https://github.com/uncle-bone/pfQuest-CoA/releases/download/v1.0.4/pfQuest-CoA-v1.0.4.zip)
+Current stable release: **v1.0.5** · [Direct ZIP download](https://github.com/uncle-bone/pfQuest-CoA/releases/download/v1.0.5/pfQuest-CoA-v1.0.5.zip)
 
-## v1.0.4 — Current stable
+## v1.0.5 — Current stable
+
+- Publish the latest available v1.0.5a channel-hotfix build; addon TOCs identify the main addon as 1.0.5.
+- Add an experimental bounded journal for confirmed quest-ID discoveries.
+- SmartSync attaches only to an already existing BBLC25C channel and does not create, reorder, leave, or modify chat channels.
+- Preserve existing quest data, map features, and SavedVariables.
+- Cross-player behavior still requires in-game validation with a compatible peer.
+
+## v1.0.4
 
 - Add **Prefer Stock Quest Giver/Turn-in Icons** to CoA Map & Minimap Styles.
 - Enable by default to prevent overlapping pfQuest and Blizzard quest-giver markers.
 - Preserve objective markers, routes, and the existing Save, Cancel, and Reset controls.
-- Based on the current v1.0.4-dev chat build; the addon TOCs already identify the build as v1.0.4.
-- Runtime behavior of the new option still needs in-game confirmation.
+- Runtime behavior still needs in-game confirmation.
 
 ## v1.0.1
 
