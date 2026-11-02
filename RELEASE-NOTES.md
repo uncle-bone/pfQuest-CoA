@@ -1,9 +1,12 @@
-# pfQuest-CoA v1.0.4 — Stable
+# pfQuest-CoA v1.0.5 — Stable
 
-Adds **Prefer Stock Quest Giver/Turn-in Icons** to the CoA Map & Minimap Styles panel. Enabled by default to prevent overlapping pfQuest and Blizzard quest-giver markers while preserving objective markers and routes. It can be disabled to compare pfQuest's styles; existing Save, Cancel, and Reset controls remain.
+This stable release publishes the latest available v1.0.5a channel-hotfix build. The addon TOCs identify the main addon as version 1.0.5.
 
-The install-ready ZIP contains the `pfQuest/` and `pfQuest-ascension/` addon folders side by side, with upstream license notices and attribution. Both TOCs identify their versions as 1.0.4 and 1.0.1 respectively.
+- Includes the `pfQuest/` and `pfQuest-ascension/` addon folders side by side, with upstream license notices and attribution.
+- Adds an experimental, bounded journal for confirmed quest-ID discoveries.
+- The SmartSync component attaches only to an already existing **BBLC25C** channel. It does not create, reorder, leave, or otherwise modify chat channels.
+- Preserves existing quest data, map features, and SavedVariables.
 
-The v1.0.4-dev build was prepared in the pfQuest project chat; this stable release uses that same current build. The new style behavior still needs in-game validation on Conquest Reborn.
+Known limitation: SmartSync and cross-player behavior still need in-game validation with another compatible client online. This build does not implement the later proposed CoASync channel migration.
 
 Maintainer: Uncle Bone
