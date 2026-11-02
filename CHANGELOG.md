@@ -1,14 +1,14 @@
 # Changelog
 
-Current stable release: **v1.0.5** · [Direct ZIP download](https://github.com/uncle-bone/pfQuest-CoA/releases/download/v1.0.5/pfQuest-CoA-v1.0.5.zip)
+Current stable release: **v1.0.15** · [Direct ZIP download](https://github.com/uncle-bone/pfQuest-CoA/releases/download/v1.0.15/pfQuest-CoA-v1.0.15.zip)
 
-## v1.0.5 — Current stable
+## v1.0.15 — Current stable
 
-- Publish the latest available v1.0.5a channel-hotfix build; addon TOCs identify the main addon as 1.0.5.
-- Add an experimental bounded journal for confirmed quest-ID discoveries.
-- SmartSync attaches only to an already existing BBLC25C channel and does not create, reorder, leave, or modify chat channels.
+- Publish the latest v1.0.15-dev CoASync build with stable 1.0.15 version labels.
+- Add bounded multi-category quest discovery reconciliation over CoASync using the PFQ6 protocol.
+- Delay channel join by 20 seconds, check channel availability, and hide CoASync from visible chat frames without leaving it.
 - Preserve existing quest data, map features, and SavedVariables.
-- Cross-player behavior still requires in-game validation with a compatible peer.
+- Cross-client sharing still requires in-game validation with compatible peers.
 
 ## v1.0.4
 
