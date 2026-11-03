@@ -3,6 +3,7 @@ local frame = { events = {}, scripts = {} }
 function frame:RegisterEvent(name) self.events[name] = true end
 function frame:SetScript(name, fn) self.scripts[name] = fn end
 CreateFrame = function() return frame end
+SlashCmdList = {}
 GetTime = function() return 100 end
 GetChannelName = function(name) assert(name == "CoASync"); return 6, "CoASync" end
 GetChannelList = function() return 6, "CoASync" end
