@@ -1,34 +1,30 @@
 # pfQuest-CoA
 
-> **[Download Here!](https://coa-research.unclebone.workers.dev/download/pfQuest-CoA)**
+> **[Download Here!](https://github.com/uncle-bone/pfQuest-CoA/releases/download/v1.0.16/pfQuest-CoA-v1.0.16.zip)** · [Release notes](https://github.com/uncle-bone/pfQuest-CoA/releases/tag/v1.0.16)
+> **Current stable release: v1.0.16.**
 
 Quest helper and Conquest Reborn database addon for Ascension: Conquest of Azeroth / Conquest Reborn (WoW 3.3.5a, Interface 30300).
 
 Maintainer: **Uncle Bone**
 
-## **Current stable release: v1.0.15.**
+## v1.0.16 — CoASync receive and quest-log fixes
 
-This release updates pfQuest-CoA sharing to the shared **CoASync** channel and adds bounded multi-category discovery reconciliation. Both addon folders, `pfQuest/` and `pfQuest-ascension/`, are included side by side with upstream license notices and attribution.
+- Correct SmartSync CoASync receive handling for WoW 3.3.5a: accept plain or decorated channel names only when the local channel number also matches the joined CoASync slot.
+- Fix quest-log scanning so the second return value from GetNumQuestLogEntries cannot be misinterpreted as a tonumber base.
+- Add a Lua 5.1 regression test confirming valid messages increase received/peer counts and invalid channel identities are ignored.
+- Preserve PFQ6 protocol framing, quest data, settings, diagnostics, and existing SavedVariables.
 
-### v1.0.15 changes
+Automated Lua syntax, regression, TOC, and ZIP integrity checks passed. In-game multi-client verification remains pending.
+
+## Previous stable release: v1.0.15
+
+This release moved pfQuest-CoA sharing to the shared **CoASync** channel and added bounded multi-category discovery reconciliation. Both addon folders, `pfQuest/` and `pfQuest-ascension/`, are included side by side with upstream license notices and attribution.
 
 - Uses the **CoASync** channel and a dedicated `PFQ6` discovery protocol.
 - Waits 20 seconds after login before attempting to join, checks for existing channels, and hides CoASync from visible chat frames without leaving the channel.
 - Adds bounded indexing and reconciliation for quest discoveries, plus sharing status and controls.
 - Preserves existing quest data, map features, and SavedVariables.
 - The optional status panel opens only when requested with `/pfqsyncui`; it does not open automatically.
-
-Sharing and cross-client synchronization still need in-game validation with compatible peers. The release ZIP is based on the v1.0.15-dev chat build; the included addon version labels are set to stable **1.0.15**.
-
-## v1.0.16 — CoASync receive and quest-log fixes (prerelease)
-
-- Fix WoW 3.3.5a channel event parsing: accept plain or decorated CoASync names only when the local channel number also matches.
-- Fix quest-log polling by capturing the first return from GetNumQuestLogEntries before converting it.
-- Preserve PFQ6 framing, quest sharing, diagnostics, SavedVariables, and the v1.0.15 stable package.
-
-[Download the v1.0.16 prerelease ZIP](https://github.com/uncle-bone/pfQuest-CoA/releases/download/v1.0.16/pfQuest-CoA-v1.0.16.zip)
-
-This build is based on the verified v1.0.15 release archive with source checksum validation. Automated Lua 5.1 and ZIP checks pass before publication. Multi-client behavior still needs in-game confirmation.
 
 ## v1.0.4
 
