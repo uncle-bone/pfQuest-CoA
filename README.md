@@ -1,12 +1,12 @@
 # pfQuest-CoA
 
-> **[Download](https://github.com/uncle-bone/pfQuest-CoA/releases/latest)**
+> **[Download Here!](https://coa-research.unclebone.workers.dev/download/pfQuest-CoA)**
 
 Quest helper and Conquest Reborn database addon for Ascension: Conquest of Azeroth / Conquest Reborn (WoW 3.3.5a, Interface 30300).
 
 Maintainer: **Uncle Bone**
 
-## Current release: v1.0.15
+## **Current stable release: v1.0.15.**
 
 This release updates pfQuest-CoA sharing to the shared **CoASync** channel and adds bounded multi-category discovery reconciliation. Both addon folders, `pfQuest/` and `pfQuest-ascension/`, are included side by side with upstream license notices and attribution.
 
