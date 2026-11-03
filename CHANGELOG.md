@@ -2,7 +2,7 @@
 
 Current stable release: **v1.0.15** · [Direct ZIP download](https://github.com/uncle-bone/pfQuest-CoA/releases/download/v1.0.15/pfQuest-CoA-v1.0.15.zip)
 
-## v1.0.15 — Current stable
+## v1.0.16 — Prerelease\n\n- Validate both the local channel index and plain/decorated channel name before accepting CoASync messages.\n- Fix GetNumQuestLogEntries() multiple-return handling in quest-log polling.\n- Add Lua 5.1 regression coverage for receipt counters and peer records.\n- Package from the checksummed v1.0.15 source release; in-game multi-client validation remains pending.\n\n## v1.0.15 — Current stable
 
 - Publish the latest v1.0.15-dev CoASync build with stable 1.0.15 version labels.
 - Add bounded multi-category quest discovery reconciliation over CoASync using the PFQ6 protocol.

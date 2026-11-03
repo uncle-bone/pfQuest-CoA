@@ -1,0 +1,8 @@
+{
+  "version": "v1.0.16",
+  "prerelease": true,
+  "source_release": "v1.0.15",
+  "source_url": "https://github.com/uncle-bone/pfQuest-CoA/releases/download/v1.0.15/pfQuest-CoA-v1.0.15.zip",
+  "source_sha256": "11e449c8e8037a509b6f75db52529de0b518741f6cadc7089cd39c15d31d5855",
+  "folders": ["pfQuest", "pfQuest-ascension"]
+}
