@@ -2,6 +2,7 @@
 
 - Send HELLO while no peers are known so fresh clients can discover each other; hold record sharing until a peer is established.
 - Add Lua 5.1 regression coverage for peerless HELLO, distinct Q/C quest keys, and valid/invalid channel identities.
+- Show v1.0.17 in the in-game CoASync panel and options headers.
 - Preserve PFQ6 framing, existing quest records, settings, and SavedVariables.
 
 Stable release. Automated Lua syntax, regression, TOC and ZIP checks run before publication. In-game multi-client verification remains pending.

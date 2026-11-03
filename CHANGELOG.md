@@ -6,6 +6,7 @@ Current stable release: **v1.0.17** · [Direct ZIP download](https://github.com/
 
 - Allow HELLO packets to bootstrap peer discovery when no peer is known; keep record traffic gated until discovery.
 - Add Lua 5.1 regression coverage for peerless HELLO, category-specific quest IDs, and incoming channel validation.
+- Set both in-game CoASync pane headers from the packaged v1.0.17 version.
 - Preserve PFQ6 framing, existing quest data, settings, and SavedVariables. In-game multi-client verification remains pending.
 
 ## v1.0.16 — CoASync receive and quest-log fixes

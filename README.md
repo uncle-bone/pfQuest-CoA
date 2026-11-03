@@ -12,6 +12,7 @@ Maintainer: **Uncle Bone**
 - Send the PFQ6 HELLO when sharing is enabled even if no peers are known yet, allowing two fresh clients to discover each other.
 - Keep record and bucket traffic gated until a peer is known.
 - Test peerless startup HELLO, category-specific quest IDs, channel validation, and peer counting.
+- Show v1.0.17 in both in-game CoASync pane headers and keep addon metadata aligned.
 - Preserve PFQ6 framing, existing quest records, settings, and SavedVariables.
 
 In-game multi-client verification remains pending.

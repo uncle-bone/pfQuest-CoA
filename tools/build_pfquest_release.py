@@ -88,6 +88,20 @@ def main() -> None:
         "  local n=math.min(tonumber(GetNumQuestLogEntries()) or 0,100)",
         "  local questCount=GetNumQuestLogEntries()\n  local n=math.min(tonumber(questCount) or 0,100)",
     )
+    version_label = VERSION.removeprefix("v")
+    replace_exact(
+        sync,
+        "title:SetPoint('TOP',gui,'TOP',0,-18);title:SetText('pfQuest-CoA v1.0.15 | CoASync')",
+        f"title:SetPoint('TOP',gui,'TOP',0,-18);title:SetText('pfQuest-CoA v{version_label} | CoASync')",
+    )
+    replace_exact(
+        sync,
+        "title:SetPoint('TOPLEFT',self,'TOPLEFT',16,-16);title:SetText('pfQuest-CoA v1.0.15 - CoASync sharing')",
+        f"title:SetPoint('TOPLEFT',self,'TOPLEFT',16,-16);title:SetText('pfQuest-CoA v{version_label} - CoASync sharing')",
+    )
+    sync_text = sync.read_text(encoding="utf-8-sig")
+    if f"pfQuest-CoA v{version_label}" not in sync_text or "pfQuest-CoA v1.0.15" in sync_text:
+        raise RuntimeError("CoASync pane title version labels were not updated")
 
     for folder in CFG["folders"]:
         addon = STAGING / folder

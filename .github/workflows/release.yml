@@ -37,9 +37,10 @@ jobs:
         run: |
           set -euo pipefail
           if gh release view "$VERSION" >/dev/null 2>&1; then
-            echo "::error::Release already exists; refusing to overwrite it"
-            exit 1
+            gh release upload "$VERSION" "$ASSET" --clobber
+            gh release edit "$VERSION" --title "pfQuest-CoA $VERSION" --notes-file RELEASE-NOTES.md
+          else
+            args=("$VERSION" "$ASSET" --target "$GITHUB_SHA" --title "pfQuest-CoA $VERSION" --notes-file RELEASE-NOTES.md)
+            if [ "$PRERELEASE" = true ]; then args+=(--prerelease --latest=false); else args+=(--latest); fi
+            gh release create "${args[@]}"
           fi
-          args=("$VERSION" "$ASSET" --target "$GITHUB_SHA" --title "pfQuest-CoA $VERSION" --notes-file RELEASE-NOTES.md)
-          if [ "$PRERELEASE" = true ]; then args+=(--prerelease --latest=false); else args+=(--latest); fi
-          gh release create "${args[@]}"

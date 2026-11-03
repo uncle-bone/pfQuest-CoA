@@ -40,6 +40,12 @@ SendChatMessage = function(message, _, _, channel)
 end
 
 local source = arg[1] or "build/staging/pfQuest/coa_sync.lua"
+local sourceFile = assert(io.open(source, "r"), "could not open built CoASync source")
+local sourceText = sourceFile:read("*a")
+sourceFile:close()
+assert(sourceText:find("pfQuest-CoA v1.0.17 | CoASync", 1, true), "CoASync panel title has the wrong addon version")
+assert(sourceText:find("pfQuest-CoA v1.0.17 - CoASync sharing", 1, true), "CoASync options title has the wrong addon version")
+assert(not sourceText:find("pfQuest-CoA v1.0.15", 1, true), "stale in-game version label remains")
 dofile(source)
 frame = frames[1]
 local onEvent = assert(frame.scripts.OnEvent, "coa_sync.lua did not register OnEvent")
