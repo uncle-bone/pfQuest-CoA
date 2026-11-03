@@ -65,6 +65,26 @@ def main() -> None:
     )
     replace_exact(
         sync,
+        " if not channel or not journal.sharing then return false end\n if stats.peers==0 then return false end",
+        " if not channel or not journal.sharing then return false end\n if stats.peers==0 and payload:sub(1,2)~='H|' then return false end",
+    )
+    replace_exact(
+        sync,
+        " if t-lastSend<10 or not channel or not journal.sharing or stats.peers==0 then return end",
+        " if t-lastSend<10 or not channel or not journal.sharing then return end",
+    )
+    replace_exact(
+        sync,
+        "  -- Solo clients remain silent: no Hello or bucket broadcasts without peers.\n  nextHello=t+600+math.random(1,120)\n  if stats.peers>0 then send('H|'..BASE..'|'..(keys and #keys or 0));lastSend=t end",
+        "  -- Send periodic HELLO even with no known peers so matching clients can bootstrap.\n  nextHello=t+600+math.random(1,120)\n  if send('H|'..BASE..'|'..(keys and #keys or 0)) then lastSend=t end",
+    )
+    replace_exact(
+        sync,
+        " elseif #queue>0 then\n  local item=table.remove(queue,1);queued[item.key]=nil;send(item.payload);lastSend=t",
+        " elseif #queue>0 and stats.peers>0 then\n  local item=table.remove(queue,1);queued[item.key]=nil;send(item.payload);lastSend=t",
+    )
+    replace_exact(
+        sync,
         "  local n=math.min(tonumber(GetNumQuestLogEntries()) or 0,100)",
         "  local questCount=GetNumQuestLogEntries()\n  local n=math.min(tonumber(questCount) or 0,100)",
     )

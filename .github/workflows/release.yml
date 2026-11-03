@@ -23,10 +23,12 @@ jobs:
         run: |
           set -euo pipefail
           VERSION="$(python3 -c 'import json; print(json.load(open(".release.json"))["version"])')"
+          PRERELEASE="$(python3 -c 'import json; print(str(json.load(open(".release.json"))["prerelease"]).lower())')"
           python3 tools/build_pfquest_release.py
           find build/staging/pfQuest build/staging/pfQuest-ascension -type f -name '*.lua' -print0 | xargs -0 -r -n1 luac5.1 -p
           lua5.1 tests/pfquest_coasync_test.lua build/staging/pfQuest/coa_sync.lua
           echo "VERSION=$VERSION" >> "$GITHUB_ENV"
+          echo "PRERELEASE=$PRERELEASE" >> "$GITHUB_ENV"
           echo "ASSET=dist/pfQuest-CoA-$VERSION.zip" >> "$GITHUB_ENV"
       - name: Publish release and ZIP
         shell: bash
@@ -38,4 +40,6 @@ jobs:
             echo "::error::Release already exists; refusing to overwrite it"
             exit 1
           fi
-          gh release create "$VERSION" "$ASSET" --target "$GITHUB_SHA" --title "pfQuest-CoA $VERSION" --notes-file RELEASE-NOTES.md --prerelease --latest=false
+          args=("$VERSION" "$ASSET" --target "$GITHUB_SHA" --title "pfQuest-CoA $VERSION" --notes-file RELEASE-NOTES.md)
+          if [ "$PRERELEASE" = true ]; then args+=(--prerelease --latest=false); else args+=(--latest); fi
+          gh release create "${args[@]}"

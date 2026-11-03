@@ -1,8 +1,20 @@
 # Changelog
 
-Current stable release: **v1.0.15** · [Direct ZIP download](https://github.com/uncle-bone/pfQuest-CoA/releases/download/v1.0.15/pfQuest-CoA-v1.0.15.zip)
+Current stable release: **v1.0.17** · [Direct ZIP download](https://github.com/uncle-bone/pfQuest-CoA/releases/download/v1.0.17/pfQuest-CoA-v1.0.17.zip)
 
-## v1.0.16 — Prerelease\n\n- Validate both the local channel index and plain/decorated channel name before accepting CoASync messages.\n- Fix GetNumQuestLogEntries() multiple-return handling in quest-log polling.\n- Add Lua 5.1 regression coverage for receipt counters and peer records.\n- Package from the checksummed v1.0.15 source release; in-game multi-client validation remains pending.\n\n## v1.0.15 — Current stable
+## v1.0.17 — CoASync bootstrap and identity fixes
+
+- Allow HELLO packets to bootstrap peer discovery when no peer is known; keep record traffic gated until discovery.
+- Add Lua 5.1 regression coverage for peerless HELLO, category-specific quest IDs, and incoming channel validation.
+- Preserve PFQ6 framing, existing quest data, settings, and SavedVariables. In-game multi-client verification remains pending.
+
+## v1.0.16 — CoASync receive and quest-log fixes
+
+- Validate local CoASync channel index and plain/decorated channel name.
+- Fix quest-log scanning with the multi-value GetNumQuestLogEntries API.
+- Preserve PFQ6 protocol framing and SavedVariables.
+
+## v1.0.15 — Previous stable
 
 - Publish the latest v1.0.15-dev CoASync build with stable 1.0.15 version labels.
 - Add bounded multi-category quest discovery reconciliation over CoASync using the PFQ6 protocol.
