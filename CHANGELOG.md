@@ -1,15 +1,14 @@
 # Changelog
 
-Current stable release: **v1.0.17** · [Direct ZIP download](https://github.com/uncle-bone/pfQuest-CoA/releases/download/v1.0.17/pfQuest-CoA-v1.0.17.zip)
+Current stable release: **v1.0.18** · [Direct ZIP download](https://github.com/uncle-bone/pfQuest-CoA/releases/download/v1.0.18/pfQuest-CoA-v1.0.18.zip)
 
-## v1.0.18 — Tested development candidate (release pending)
+## v1.0.18 — Stable release: CoASync simulator and live import verification
 
-- Add `/pfqsync simulate` PFQ6 local diagnostic with reported no-channel-traffic result.
-- Preserve real peer-to-peer PFQ6 synchronization and existing SavedVariables compatibility intent.
-- Live in-game result: simulation PASS; after simulation, two more messages received and one new record imported from real peers.
-- Remaining verification: Lua 5.1 automated regression execution, relog persistence, and remote-client confirmation of outgoing record receipt.
-- Not yet published as a stable GitHub release; do not use an unverified v1.0.18 asset URL.
-
+- Adds opt-in `/pfqsync simulate` PFQ6 diagnostics, with guarded outbound traffic and restored runtime state after the local simulation.
+- Preserves real CoASync peer-to-peer sharing and the PFQ6 wire format.
+- In-game test: simulator PASS; normal synchronization then received two additional messages and imported one new record (`received=179→181`, `imported=0→1`), with two peers and zero rejected messages.
+- Preserves existing quest records, settings, and SavedVariables.
+- Lua 5.1 and CoASync regression checks run in the publishing workflow. Relog persistence and outgoing receipt from another peer remain unverified.
 ## v1.0.17 — CoASync bootstrap and identity fixes
 
 - Allow HELLO packets to bootstrap peer discovery when no peer is known; keep record traffic gated until discovery.

@@ -1,3 +1,12 @@
+# pfQuest-CoA v1.0.18 — Stable CoASync simulator and live import verification
+
+- Add opt-in `/pfqsync simulate` PFQ6 diagnostics, with guarded outbound traffic and restored runtime state after simulation.
+- Preserve real CoASync peer-to-peer sharing and the PFQ6 wire format.
+- In-game test: simulator PASS; normal synchronization then received two additional messages and imported one new record (`received=179→181`, `imported=0→1`), with two peers and zero rejected messages.
+- Preserve existing quest records, settings, and SavedVariables.
+- Relog persistence and outgoing receipt from another peer remain unverified.
+
+Stable release. Lua 5.1 syntax and CoASync regression checks run in the publishing workflow before ZIP publication.
 # pfQuest-CoA v1.0.17 — CoASync bootstrap and identity fixes
 
 - Send HELLO while no peers are known so fresh clients can discover each other; hold record sharing until a peer is established.

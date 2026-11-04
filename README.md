@@ -1,20 +1,19 @@
 # pfQuest-CoA
 
-> **[Download Here!](https://coa-research.unclebone.workers.dev/download/pfQuest-CoA)** · [Release notes](https://github.com/uncle-bone/pfQuest-CoA/releases/tag/v1.0.17)
-> **Current stable release: v1.0.17.**
+> **[Download Here!](https://coa-research.unclebone.workers.dev/download/pfQuest-CoA)** · [Release notes](https://github.com/uncle-bone/pfQuest-CoA/releases/tag/v1.0.18)
+> **Current stable release: v1.0.18.**
 
 Quest helper and Conquest Reborn database addon for Ascension: Conquest of Azeroth / Conquest Reborn (WoW 3.3.5a, Interface 30300).
 
 Maintainer: **Uncle Bone**
 
-## v1.0.18 — Live-tested development candidate (GitHub release pending)
+## v1.0.18 — Stable release: CoASync simulator and live import verification
 
-- Adds opt-in `/pfqsync simulate` local PFQ6 diagnostic; reports PASS/FAIL and explicitly does not prove channel delivery.
-- Preserves the existing CoASync peer-to-peer sharing path and PFQ6 wire format; simulated outbound traffic is guarded.
-- User live test: local simulation PASS, followed by two additional real received messages and one imported record (`received=179→181`, `imported=0→1`), with two peers and no rejected messages.
-- Full Lua 5.1 automated regression suite, relog persistence and another client’s receipt of outgoing records remain unverified for this candidate.
-- Do not treat the development ZIP as a published GitHub stable release until its asset is uploaded and verified.
-
+- Adds opt-in `/pfqsync simulate` PFQ6 diagnostics, with guarded outbound traffic and restored runtime state after the local simulation.
+- Preserves real CoASync peer-to-peer sharing and the PFQ6 wire format.
+- In-game test: simulator PASS; normal synchronization then received two additional messages and imported one new record (`received=179→181`, `imported=0→1`), with two peers and zero rejected messages.
+- Preserves existing quest records, settings, and SavedVariables.
+- Lua 5.1 and CoASync regression checks run in the publishing workflow. Relog persistence and outgoing receipt from another peer remain unverified.
 ## v1.0.17 — CoASync bootstrap and identity fixes
 
 - Send the PFQ6 HELLO when sharing is enabled even if no peers are known yet, allowing two fresh clients to discover each other.
