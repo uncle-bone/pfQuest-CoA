@@ -7,6 +7,14 @@ Quest helper and Conquest Reborn database addon for Ascension: Conquest of Azero
 
 Maintainer: **Uncle Bone**
 
+## v1.0.18 — Live-tested development candidate (GitHub release pending)
+
+- Adds opt-in `/pfqsync simulate` local PFQ6 diagnostic; reports PASS/FAIL and explicitly does not prove channel delivery.
+- Preserves the existing CoASync peer-to-peer sharing path and PFQ6 wire format; simulated outbound traffic is guarded.
+- User live test: local simulation PASS, followed by two additional real received messages and one imported record (`received=179→181`, `imported=0→1`), with two peers and no rejected messages.
+- Full Lua 5.1 automated regression suite, relog persistence and another client’s receipt of outgoing records remain unverified for this candidate.
+- Do not treat the development ZIP as a published GitHub stable release until its asset is uploaded and verified.
+
 ## v1.0.17 — CoASync bootstrap and identity fixes
 
 - Send the PFQ6 HELLO when sharing is enabled even if no peers are known yet, allowing two fresh clients to discover each other.
